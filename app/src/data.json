@@ -1,0 +1,96 @@
+{
+  "psp": {
+    "monitors": [
+      {
+        "id": 781963706,
+        "friendly_name": "Server/GCP-亚洲东部1",
+        "customuptimeranges": [
+          { "label": "success", "ratio": "100.00" },
+          { "label": "success", "ratio": "100.00" },
+          { "label": "success", "ratio": "100.00" },
+          { "label": "empty", "ratio": "0.000" },
+          { "label": "empty", "ratio": "0.000" },
+          { "label": "empty", "ratio": "0.000" },
+          { "label": "empty", "ratio": "0.000" }
+        ],
+        "oneWeekRange": { "label": "success", "ratio": "100.00" },
+        "typeStr": "ping",
+        "intervalMin": 5,
+        "allLogs": [
+          { "statusStr": "up", "durationStr": "46 hrs, 22 mins.", "dateTimeStr": "2019-02-13 15:51:11", "reasonStr": "Successful Response", "reasonTitle": "Successful Response", "label": "success", "timestamp": 1550044271000 }
+        ],
+        "status": 2,
+        "statusLabel": "success",
+        "statusNumber": 2
+      },
+      {
+        "id": 781963759,
+        "friendly_name": "Site/Vtuber Channel Ranking",
+        "customuptimeranges": [
+          { "label": "success", "ratio": "100.00" },
+          { "label": "success", "ratio": "100.00" },
+          { "label": "success", "ratio": "100.00" },
+          { "label": "empty", "ratio": "0.000" },
+          { "label": "empty", "ratio": "0.000" },
+          { "label": "empty", "ratio": "0.000" },
+          { "label": "empty", "ratio": "0.000" }
+        ],
+        "oneWeekRange": { "label": "success", "ratio": "100.00" },
+        "typeStr": "http",
+        "intervalMin": 5,
+        "allLogs": [{ "statusStr": "up", "durationStr": "46 hrs, 5 mins.", "dateTimeStr": "2019-02-13 16:08:26", "reasonStr": "OK", "reasonTitle": "OK", "label": "success", "timestamp": 1550045306000 }],
+        "status": 2,
+        "statusLabel": "success",
+        "statusNumber": 2
+      },
+      {
+        "id": 781963754,
+        "friendly_name": "Site/博客",
+        "customuptimeranges": [
+          { "label": "success", "ratio": "100.00" },
+          { "label": "success", "ratio": "99.931" },
+          { "label": "success", "ratio": "100.00" },
+          { "label": "empty", "ratio": "0.000" },
+          { "label": "empty", "ratio": "0.000" },
+          { "label": "empty", "ratio": "0.000" },
+          { "label": "empty", "ratio": "0.000" }
+        ],
+        "oneWeekRange": { "label": "success", "ratio": "99.964" },
+        "typeStr": "http",
+        "intervalMin": 5,
+        "allLogs": [
+          { "statusStr": "up", "durationStr": "24 hrs, 34 mins.", "dateTimeStr": "2019-02-13 16:06:58", "reasonStr": "OK", "reasonTitle": "OK", "label": "success", "timestamp": 1550045218000 },
+          { "statusStr": "down", "durationStr": "0 hrs, 1 mins.", "dateTimeStr": "2019-02-14 16:41:31", "reasonStr": "Not Found", "reasonTitle": "Not Found", "label": "danger", "timestamp": 1550133691000 },
+          { "statusStr": "up", "durationStr": "21 hrs, 31 mins.", "dateTimeStr": "2019-02-14 16:42:31", "reasonStr": "OK", "reasonTitle": "OK", "label": "success", "timestamp": 1550133751000 }
+        ],
+        "status": 2,
+        "statusLabel": "success",
+        "statusNumber": 2
+      }
+    ],
+    "name": "Roma's monitors",
+    "logo": "694699-1550045931.png",
+    "url_key": "wkKGzU4zO",
+    "hide_ur_links": false,
+    "sort": 1,
+    "custom_css": "",
+    "announcements": [],
+    "monitorCount": 3,
+    "latestDownTimeStr": "It was recorded (for the monitor 博客) on 2019-02-14 16:41:31 and the downtime lasted for 0 hrs, 1 mins.",
+    "latestDownLog": { "type": 1, "datetime": 1550133691, "duration": 60, "reason": { "code": "404", "detail": "Not Found" }, "mon": { "friendly_name": "博客" } },
+    "hasActiveAnnounce": false,
+    "activeAnnouncements": 0,
+    "firstAnnounceTitle": null,
+    "firstAnnounceDescInline": null,
+    "pspStats": {
+      "ratios": { "l1": { "label": "success", "ratio": "100.00" }, "l7": { "label": "success", "ratio": "99.988" }, "l30": { "label": "success", "ratio": "99.988" } },
+      "downDurations": { "l1": 1, "l7": 1, "l30": 1 },
+      "d": { "l1": 60, "l7": 60, "l30": 60 },
+      "counts": { "up": 3, "down": 0, "paused": 0 }
+    },
+    "downCount": 0,
+    "tzdiff": 480
+  },
+  "stat": "ok",
+  "days": ["15 Feb", "14 Feb", "13 Feb", "12 Feb", "11 Feb", "10 Feb", "09 Feb"]
+}
