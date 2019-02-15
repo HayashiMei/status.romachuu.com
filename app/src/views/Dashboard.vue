@@ -61,7 +61,6 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
-  // font-family: 'Roboto Mono', monospace;
 
   &::before {
     content: '';
