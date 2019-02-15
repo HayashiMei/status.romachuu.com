@@ -1,5 +1,11 @@
 <template>
   <footer>
+    <div class="provided">
+      <span>Provided by:</span>
+      <a href="https://uptimerobot.com" rel="nofollow">
+        <div class="uptime-logo"></div>
+      </a>
+    </div>
     <div class="copyright">
       <template>{{ copyRightYear }}</template>
       <span class="with-love">
@@ -30,15 +36,40 @@ export default {
 footer {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 96px;
+  padding: 0 20px;
   font-family: Roboto, monospace;
   color: #000;
   background-color: #eee;
 }
 
-.with-love {
-  margin: 0 5px;
-  color: #f44336;
+.provided {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  span {
+    margin-right: 4px;
+    color: #80ba27;
+    font-size: 12px;
+  }
+
+  .uptime-logo {
+    width: 114px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('../../images/uptime-logo.png');
+  }
+}
+
+.copyright {
+  white-space: nowrap;
+
+  .with-love {
+    margin: 0 5px;
+    color: #f44336;
+  }
 }
 </style>

@@ -18,6 +18,7 @@ export default {
 
 <style lang="scss" scoped>
 .latest-downtime__content {
+  padding-right: 10px;
   font-size: 14px;
 }
 </style>

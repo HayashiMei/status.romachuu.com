@@ -5,7 +5,12 @@
     <div class="overview">
       <overall-uptime :ratios="ratios" class="overview__item"></overall-uptime>
       <latest-downtime :content="latestDownTimeStr" class="overview__item"></latest-downtime>
-      <quick-stats :ratios="ratios" class="overview__item"></quick-stats>
+      <quick-stats
+        :up="counts.up"
+        :down="counts.down"
+        :paused="counts.paused"
+        class="overview__item"
+      ></quick-stats>
     </div>
   </div>
 </template>
@@ -32,7 +37,7 @@ const siteList = data.psp.monitors
     name: item.friendly_name.replace('Site/', ''),
   }));
 
-const ratios = data.psp.pspStats.ratios;
+const { ratios, counts } = data.psp.pspStats;
 
 export default {
   components: { DashboardTable, OverallUptime, LatestDowntime, QuickStats },
@@ -42,6 +47,7 @@ export default {
     days: data.days,
     ratios,
     latestDownTimeStr: data.psp.latestDownTimeStr,
+    counts,
   }),
   computed: {},
   mounted() {

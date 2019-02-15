@@ -1,23 +1,26 @@
 <template>
   <div class="quick-stats">
     <h1 class="md-title">Quick Stats</h1>
-    <div class="ratio-item">
-      <span class="ratio-item__inner"
-        :class="{ success: Number(last24Hours) >= 85, warning: Number(last24Hours) < 85 }"
-      >{{ last24Hours + '%' }}</span>
-      <span>{{ last24HoursTip }}</span>
+    <div class="quick-stats-item">
+      <div class="status__bullet up"></div>
+      <div class="quick-stats-item__count up">
+        <span>Up</span>
+        <span>{{ up }}</span>
+      </div>
     </div>
-    <div class="ratio-item">
-      <span class="ratio-item__inner"
-        :class="{ success: Number(last7Days) >= 85, warning: Number(last7Days) < 85 }"
-      >{{ last7Days + '%' }}</span>
-      <span>{{ last7DaysTip }}</span>
+    <div class="quick-stats-item">
+      <div class="status__bullet down"></div>
+      <div class="quick-stats-item__count down">
+        <span>Down</span>
+        <span>{{ down }}</span>
+      </div>
     </div>
-    <div class="ratio-item">
-      <span class="ratio-item__inner"
-        :class="{ success: Number(last30Days) >= 85, warning: Number(last30Days) < 85 }"
-      >{{ last30Days + '%' }}</span>
-      <span>{{ last30DaysTip }}</span>
+    <div class="quick-stats-item">
+      <div class="status__bullet paused"></div>
+      <div class="quick-stats-item__count paused">
+        <span>Paused</span>
+        <span>{{ paused }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -25,45 +28,71 @@
 <script>
 export default {
   props: {
-    ratios: {
-      type: Object,
+    up: {
+      type: Number,
+      required: true,
+    },
+    down: {
+      type: Number,
+      required: true,
+    },
+    paused: {
+      type: Number,
       required: true,
     },
   },
-  data: () => ({
-    last24HoursTip: ' (last 24 hours)',
-    last7DaysTip: ' (last 7 days)',
-    last30DaysTip: ' (last 30 days)',
-  }),
-  computed: {
-    last24Hours() {
-      return this.ratios.l1.ratio;
-    },
-    last7Days() {
-      return this.ratios.l7.ratio;
-    },
-    last30Days() {
-      return this.ratios.l30.ratio;
-    },
-  },
+  data: () => ({}),
+  computed: {},
 };
 </script>
 
 <style lang="scss" scoped>
-.ratio-item {
+$up: #bbdf88;
+$down: #f07178;
+$paused: #9c9b9b;
+
+.quick-stats-item {
+  display: flex;
+  align-items: center;
   margin-bottom: 12px;
   font-size: 18px;
 
-  .ratio-item__inner {
-    font-weight: bold;
+  .status__bullet {
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    margin-right: 15px;
+
+    &.up {
+      background-color: $up;
+    }
+
+    &.down {
+      background-color: $down;
+    }
+
+    &.paused {
+      background-color: $paused;
+    }
   }
-}
 
-.success {
-  color: #bbdf88;
-}
+  .quick-stats-item__count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 43px);
 
-.warning {
-  color: #f07178;
+    &.up {
+      color: $up;
+    }
+
+    &.down {
+      color: $down;
+    }
+
+    &.paused {
+      color: $paused;
+    }
+  }
 }
 </style>
