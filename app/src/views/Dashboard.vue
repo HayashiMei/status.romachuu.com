@@ -52,8 +52,10 @@ export default {
   computed: {},
   mounted() {
     // API.getDashboard();
+    setTimeout(() => {
+      this.$emit('render');
+    }, 1000);
   },
-  methods: {},
 };
 </script>
 

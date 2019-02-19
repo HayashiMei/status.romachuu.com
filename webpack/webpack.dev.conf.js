@@ -3,9 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base.conf.js');
-const SW = require('./sw.config.js');
-
-const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = merge(webpackBaseConfig, {
   mode: 'development',
@@ -28,7 +25,6 @@ module.exports = merge(webpackBaseConfig, {
       template: path.join(__dirname, '../app/index.html'),
       favicon: path.resolve('app/images/favicon.png'),
     }),
-    // SW,
   ],
   devtool: 'source-map',
   watch: true,

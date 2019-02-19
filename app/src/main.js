@@ -1,13 +1,30 @@
 import '@babel/polyfill';
 import Vue from 'vue';
-// import './utils/service-worker';
 import '../scss/index.scss';
 
 import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.min.css';
 import 'vue-material/dist/theme/default-dark.css';
 
+import VueScroll from 'vuescroll/dist/vuescroll-native';
+import 'vuescroll/dist/vuescroll.css';
+
 Vue.use(VueMaterial);
+
+Vue.use(VueScroll);
+Vue.prototype.$vuescrollConfig = {
+  scrollPanel: {
+    scrollingX: false,
+  },
+  bar: {
+    background: '#dadfe6',
+    opacity: 0.4,
+    hoverStyle: {
+      background: '#dadfe6',
+      opacity: 0.4,
+    },
+  },
+};
 
 Vue.config.debug = true;
 

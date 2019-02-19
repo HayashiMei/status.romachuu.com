@@ -6,7 +6,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base.conf.js');
-const SW = require('./sw.config.js');
 
 module.exports = merge(webpackBaseConfig, {
   mode: 'production',
@@ -57,6 +56,5 @@ module.exports = merge(webpackBaseConfig, {
       filename: 'css/[name].[hash:8].css',
       chunkFilename: 'css/[id].[hash:8].css',
     }),
-    // SW,
   ],
 });

@@ -57,11 +57,6 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 3;
   display: flex;
   justify-content: space-between;
   align-items: center;
