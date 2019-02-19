@@ -5,7 +5,12 @@
         <span>{{ messageTitle }}</span>
       </div>
       <div class="body" :class="{ 'is-opened': open }">
-        <div class="body__inner"></div>
+        <div class="body__inner">
+          <vue-scroll>
+            <h3>{{ contentTitle }}</h3>
+            <p>{{ contentText }}</p>
+          </vue-scroll>
+        </div>
       </div>
       <div class="footer">
         <button
@@ -28,6 +33,8 @@ export default {
   props: {
     show: Boolean,
     messageTitle: String,
+    contentTitle: String,
+    contentText: String,
   },
   data: () => ({
     open: false,
@@ -135,7 +142,29 @@ export default {
   }
 
   .body__inner {
+    height: 100%;
     padding: 30px 20px 50px;
+
+    h3 {
+      font-size: 20px;
+      line-height: 34px;
+      color: #5d3523;
+      text-align: center;
+      padding: 5px;
+      border-bottom: 1px dashed #cccccc;
+      margin: 0px 0px 10px;
+    }
+
+    p {
+      font-size: 13px;
+      line-height: 30px;
+      color: #5d3523;
+      text-align: center;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      margin: 0px;
+      padding: 5px;
+    }
   }
 }
 

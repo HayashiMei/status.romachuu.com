@@ -15,6 +15,8 @@
         v-show="showMessage"
         :show="showMessage"
         message-title="メッセージが届いています"
+        content-title="This is title"
+        content-text="Long string Long string Long string Long string Long string."
         @close="handleClose"
       ></message-modal>
     </transition>
