@@ -65,6 +65,7 @@ footer {
 }
 
 .copyright {
+  line-height: 1;
   white-space: nowrap;
 
   .with-love {

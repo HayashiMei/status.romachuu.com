@@ -1,11 +1,12 @@
 <template>
   <div class="dashboard">
-    <dashboard-table title="Server" :list="serverList" :days="days"></dashboard-table>
-    <dashboard-table title="Site" :list="siteList" :days="days"></dashboard-table>
+    <grid-table title="Server" :header="header" :data="serverData"></grid-table>
+    <grid-table title="Site" :header="header" :data="siteData"></grid-table>
     <div class="overview">
-      <overall-uptime :ratios="ratios" class="overview__item"></overall-uptime>
+      <overall-uptime v-if="ratios" :ratios="ratios" class="overview__item"></overall-uptime>
       <latest-downtime :content="latestDownTimeStr" class="overview__item"></latest-downtime>
       <quick-stats
+        v-if="counts"
         :up="counts.up"
         :down="counts.down"
         :paused="counts.paused"
@@ -17,7 +18,7 @@
 
 <script>
 import API from '../api';
-import DashboardTable from '../components/DashboardTable.vue';
+import GridTable from '../components/GridTable.vue';
 import OverallUptime from '../components/OverallUptime.vue';
 import LatestDowntime from '../components/LatestDowntime.vue';
 import QuickStats from '../components/QuickStats.vue';
@@ -37,24 +38,79 @@ const siteList = data.psp.monitors
     name: item.friendly_name.replace('Site/', ''),
   }));
 
-const { ratios, counts } = data.psp.pspStats;
-
 export default {
-  components: { DashboardTable, OverallUptime, LatestDowntime, QuickStats },
+  components: { GridTable, OverallUptime, LatestDowntime, QuickStats },
   data: () => ({
-    serverList,
-    siteList,
-    days: data.days,
-    ratios,
-    latestDownTimeStr: data.psp.latestDownTimeStr,
-    counts,
+    monitors: [],
+    days: [],
+    ratios: null,
+    latestDownTimeStr: '',
+    counts: null,
   }),
-  computed: {},
+  computed: {
+    header() {
+      return ['Last 7 Days', 'Name', 'Type', 'Interval', ...this.days];
+    },
+    serverData() {
+      return this.convert(this.monitors, 'Server/');
+    },
+    siteData() {
+      return this.convert(this.monitors, 'Site/');
+    },
+  },
   mounted() {
-    // API.getDashboard();
-    setTimeout(() => {
-      this.$emit('render');
-    }, 1000);
+    this.update();
+  },
+  methods: {
+    convert(monitors, label) {
+      return monitors
+        .filter(item => ~item.friendly_name.indexOf(label))
+        .map(item => [
+          {
+            label: 'Last 7 Days',
+            value: item.oneWeekRange.ratio + '%',
+            classes: ['text', item.oneWeekRange.label],
+          },
+          {
+            label: 'Name',
+            value: item.friendly_name.replace(label, ''),
+          },
+          {
+            label: 'Type',
+            value: item.typeStr,
+          },
+          {
+            label: 'Interval',
+            value: item.intervalMin + ' mins',
+          },
+          ...this.days.map((label, index) => ({
+            label,
+            value: item.customuptimeranges[index].ratio + '%',
+            classes: ['block', item.customuptimeranges[index].label],
+          })),
+        ]);
+    },
+    update() {
+      API.getDashboard()
+        .then(({ data }) => {
+          this.monitors = data.psp.monitors;
+          this.days = data.days;
+          this.ratios = data.psp.pspStats.ratios;
+          this.counts = data.psp.pspStats.counts;
+          this.latestDownTimeStr = data.psp.latestDownTimeStr;
+
+          setTimeout(() => {
+            this.$emit('render');
+          }, 1000);
+        })
+        .catch(e => {
+          this.$emit('error', e);
+
+          setTimeout(() => {
+            this.$emit('render');
+          }, 1000);
+        });
+    },
   },
 };
 </script>
@@ -81,6 +137,14 @@ export default {
 
   .overview__item {
     width: calc((100% - 40px) / 3);
+  }
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+
+    .overview__item {
+      width: 100%;
+    }
   }
 }
 </style>

@@ -46,6 +46,7 @@ export default {
     updateCountdown() {
       if (this.cd === 1) {
         this.cd = 60;
+        this.$emit('countdown');
         return;
       }
 

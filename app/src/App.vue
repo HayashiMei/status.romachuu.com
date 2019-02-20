@@ -1,9 +1,9 @@
 <template>
   <div class="app">
-    <app-header></app-header>
-    <div class="container" @click="showMessage = true">
+    <app-header @countdown="handleCountdown"></app-header>
+    <div class="container">
       <vue-scroll>
-        <dashboard @render="handleRender"></dashboard>
+        <dashboard ref="dashboard" @render="handleRender" @error="handleError"></dashboard>
         <app-footer></app-footer>
       </vue-scroll>
     </div>
@@ -14,9 +14,9 @@
       <message-modal
         v-show="showMessage"
         :show="showMessage"
-        message-title="メッセージが届いています"
-        content-title="This is title"
-        content-text="Long string Long string Long string Long string Long string."
+        :message-title="messageTitle"
+        :content-title="messageTitle"
+        :content-text="messageContent"
         @close="handleClose"
       ></message-modal>
     </transition>
@@ -33,8 +33,10 @@ import Dashboard from './views/Dashboard.vue';
 export default {
   components: { AppHeader, AppFooter, Dashboard, Loading, MessageModal },
   data: () => ({
-    showLoad: false,
-    showMessage: true,
+    showLoad: true,
+    showMessage: false,
+    messageTitle: '',
+    messageContent: '',
   }),
   methods: {
     handleRender() {
@@ -42,6 +44,14 @@ export default {
     },
     handleClose() {
       this.showMessage = false;
+    },
+    handleCountdown() {
+      this.$refs.dashboard.update();
+    },
+    handleError(e) {
+      this.messageTitle = e.message;
+      this.messageContent = 'An error occurred, please try again later...';
+      this.showMessage = true;
     },
   },
 };

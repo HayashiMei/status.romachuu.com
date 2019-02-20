@@ -56,7 +56,6 @@ export default {
       if (this.open) {
         this.open = false;
       } else {
-        this.show = false;
         this.$emit('close');
       }
     },
