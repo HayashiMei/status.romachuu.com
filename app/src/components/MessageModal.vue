@@ -2,13 +2,13 @@
   <div class="message-modal">
     <div :class="['message-box', { 'is-closed': !show }]">
       <div class="header" :class="{ 'is-opened': open }">
-        <span>{{ messageTitle }}</span>
+        <span>{{ msgTitle }}</span>
       </div>
       <div class="body" :class="{ 'is-opened': open }">
         <div class="body__inner">
           <vue-scroll>
-            <h3>{{ contentTitle }}</h3>
-            <p>{{ contentText }}</p>
+            <h3>{{ msgSubTitle }}</h3>
+            <p>{{ msgContent }}</p>
           </vue-scroll>
         </div>
       </div>
@@ -32,9 +32,9 @@
 export default {
   props: {
     show: Boolean,
-    messageTitle: String,
-    contentTitle: String,
-    contentText: String,
+    msgTitle: String,
+    msgSubTitle: String,
+    msgContent: String,
   },
   data: () => ({
     open: false,

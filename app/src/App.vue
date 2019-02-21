@@ -3,20 +3,20 @@
     <app-header @countdown="handleCountdown"></app-header>
     <div class="container">
       <vue-scroll>
-        <dashboard ref="dashboard" @render="handleRender" @error="handleError"></dashboard>
+        <router-view ref="dashboard"/>
         <app-footer></app-footer>
       </vue-scroll>
     </div>
     <transition name="fade">
-      <loading v-if="showLoad"/>
+      <loading v-if="showLoading"/>
     </transition>
     <transition name="fade">
       <message-modal
-        v-show="showMessage"
-        :show="showMessage"
-        :message-title="messageTitle"
-        :content-title="messageTitle"
-        :content-text="messageContent"
+        v-show="showMsg"
+        :show="showMsg"
+        :msg-title="msgTitle"
+        :msg-sub-title="msgSubTitle"
+        :msg-content="msgContent"
         @close="handleClose"
       ></message-modal>
     </transition>
@@ -24,34 +24,25 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
+
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
 import Loading from './components/Loading.vue';
 import MessageModal from './components/MessageModal.vue';
-import Dashboard from './views/Dashboard.vue';
 
 export default {
-  components: { AppHeader, AppFooter, Dashboard, Loading, MessageModal },
-  data: () => ({
-    showLoad: true,
-    showMessage: false,
-    messageTitle: '',
-    messageContent: '',
-  }),
+  components: { AppHeader, AppFooter, Loading, MessageModal },
+  computed: {
+    ...mapState(['showLoading', 'showMsg', 'msgTitle', 'msgSubTitle', 'msgContent']),
+  },
   methods: {
-    handleRender() {
-      this.showLoad = false;
-    },
+    ...mapMutations(['setShowMsg']),
     handleClose() {
-      this.showMessage = false;
+      this.setShowMsg(false);
     },
     handleCountdown() {
-      this.$refs.dashboard.update();
-    },
-    handleError(e) {
-      this.messageTitle = e.message;
-      this.messageContent = 'An error occurred, please try again later...';
-      this.showMessage = true;
+      this.$refs.dashboard.fetchData();
     },
   },
 };
@@ -69,7 +60,7 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.6s;
+  transition: opacity 0.4s;
 }
 .fade-enter,
 .fade-leave-to {

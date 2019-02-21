@@ -1,21 +1,15 @@
 <template>
-  <div class="dashboard-table">
+  <div class="monitor-table">
     <h1 class="md-title">{{ title }}</h1>
-
     <div class="grid">
       <div class="header">
         <div v-for="item in header" :key="item" class="header__item col">
           <div>{{ item }}</div>
         </div>
       </div>
-      <div v-for="(item, index) in data" :key="index" class="row">
-        <div
-          v-for="(subItem, subIndex) in item"
-          :key="subIndex"
-          class="row__item col"
-          :class="subItem.classes"
-        >
-          <div>{{ subItem.value }}</div>
+      <div class="row">
+        <div v-for="item in data" :key="item.label" class="row__item col" :class="item.classes">
+          <div>{{ item.value }}</div>
         </div>
       </div>
     </div>
@@ -24,7 +18,6 @@
 
 <script>
 export default {
-  components: {},
   props: {
     title: {
       type: String,
@@ -37,13 +30,10 @@ export default {
   },
   computed: {
     header() {
-      if (!this.data || !this.data.length) {
-        return [];
-      }
-
-      return this.data[0].map(item => item.label);
+      return this.data.map(item => item.label);
     },
   },
+  methods: {},
 };
 </script>
 
@@ -60,30 +50,8 @@ export default {
   min-width: 960px;
   text-align: center;
 
-  .col:nth-child(1) {
-    width: 10%;
-  }
-
-  .col:nth-child(2) {
-    width: 15%;
-
-    &.row__item {
-      font-size: 16px;
-    }
-  }
-
-  .col:nth-child(3) {
-    width: 5%;
-  }
-
-  .col:nth-child(4) {
-    width: 8%;
-  }
-
-  @for $i from 5 through 11 {
-    .col:nth-child(#{$i}) {
-      width: calc(62% / 7);
-    }
+  .col {
+    width: calc(100% / 7);
   }
 }
 
@@ -111,38 +79,26 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px 10px;
+  padding: 12px 10px;
   font-size: 13px;
 
   div {
-    line-height: 18px;
-  }
-
-  &.block {
-    padding: 12px 10px;
-
-    div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 25px;
-      width: 100%;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 100%;
   }
 }
 
 .success {
-  &.text {
-    color: #bbdf88;
-  }
-
-  &.block div {
+  div {
     background-color: #4caf50;
   }
 }
 
 .empty {
-  &.block div {
+  div {
     background-color: #9c9b9b;
   }
 }

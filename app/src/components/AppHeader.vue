@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="title">
+    <div class="title" @click="handleClick">
       <logo class="logo"></logo>
       <span>{{ title }}</span>
     </div>
@@ -13,15 +13,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import Logo from './Logo.vue';
 
 export default {
   components: {
     Logo,
-  },
-  props: {
-    monitorCount: Number,
-    downCount: Number,
   },
   data: () => ({
     title: "Roma's monitors",
@@ -38,12 +35,17 @@ export default {
         },
       ];
     },
+    ...mapState(['showLoading']),
   },
   mounted() {
     setInterval(this.updateCountdown, 1000);
   },
   methods: {
     updateCountdown() {
+      if (this.showLoading) {
+        return;
+      }
+
       if (this.cd === 1) {
         this.cd = 60;
         this.$emit('countdown');
@@ -51,6 +53,9 @@ export default {
       }
 
       this.cd--;
+    },
+    handleClick() {
+      this.$router.push({ name: 'home' });
     },
   },
 };
@@ -71,6 +76,7 @@ header {
   display: flex;
   align-items: center;
   font-size: 20px;
+  cursor: pointer;
 
   .logo {
     height: 40px;

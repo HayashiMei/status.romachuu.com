@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard">
-    <grid-table title="Server" :header="header" :data="serverData"></grid-table>
-    <grid-table title="Site" :header="header" :data="siteData"></grid-table>
+    <dashboard-table title="Server" :header="header" :data="serverData"></dashboard-table>
+    <dashboard-table title="Site" :header="header" :data="siteData"></dashboard-table>
     <div class="overview">
       <overall-uptime v-if="ratios" :ratios="ratios" class="overview__item"></overall-uptime>
       <latest-downtime :content="latestDownTimeStr" class="overview__item"></latest-downtime>
@@ -17,29 +17,16 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 import API from '../api';
-import GridTable from '../components/GridTable.vue';
+import DashboardTable from '../components/DashboardTable.vue';
 import OverallUptime from '../components/OverallUptime.vue';
 import LatestDowntime from '../components/LatestDowntime.vue';
 import QuickStats from '../components/QuickStats.vue';
-import data from '../data.json';
-
-const serverList = data.psp.monitors
-  .filter(item => ~item.friendly_name.indexOf('Server/'))
-  .map(item => ({
-    ...item,
-    name: item.friendly_name.replace('Server/', ''),
-  }));
-
-const siteList = data.psp.monitors
-  .filter(item => ~item.friendly_name.indexOf('Site/'))
-  .map(item => ({
-    ...item,
-    name: item.friendly_name.replace('Site/', ''),
-  }));
+// import statusData from '../status.json';
 
 export default {
-  components: { GridTable, OverallUptime, LatestDowntime, QuickStats },
+  components: { DashboardTable, OverallUptime, LatestDowntime, QuickStats },
   data: () => ({
     monitors: [],
     days: [],
@@ -59,9 +46,16 @@ export default {
     },
   },
   mounted() {
-    this.update();
+    this.fetchData();
+  },
+  beforeRouteLeave(to, from, next) {
+    this.setShowLoading(true);
+    setTimeout(() => {
+      next();
+    }, 400);
   },
   methods: {
+    ...mapMutations(['setShowLoading', 'setShowMsg']),
     convert(monitors, label) {
       return monitors
         .filter(item => ~item.friendly_name.indexOf(label))
@@ -74,6 +68,7 @@ export default {
           {
             label: 'Name',
             value: item.friendly_name.replace(label, ''),
+            id: item.id,
           },
           {
             label: 'Type',
@@ -90,7 +85,16 @@ export default {
           })),
         ]);
     },
-    update() {
+    fetchData() {
+      // this.monitors = statusData.psp.monitors;
+      // this.days = statusData.days;
+      // this.ratios = statusData.psp.pspStats.ratios;
+      // this.counts = statusData.psp.pspStats.counts;
+      // this.latestDownTimeStr = statusData.psp.latestDownTimeStr;
+      // setTimeout(() => {
+      //   this.setShowLoading(false);
+      // }, 500);
+
       API.getDashboard()
         .then(({ data }) => {
           this.monitors = data.psp.monitors;
@@ -100,15 +104,20 @@ export default {
           this.latestDownTimeStr = data.psp.latestDownTimeStr;
 
           setTimeout(() => {
-            this.$emit('render');
-          }, 1000);
+            this.setShowLoading(false);
+          }, 250);
         })
         .catch(e => {
-          this.$emit('error', e);
+          this.setShowMsg({
+            showMsg: true,
+            msgTitle: e.message,
+            msgSubTitle: e.message,
+            msgContent: 'An error occurred, please try again later...',
+          });
 
           setTimeout(() => {
-            this.$emit('render');
-          }, 1000);
+            this.setShowLoading(false);
+          }, 250);
         });
     },
   },
