@@ -1,6 +1,9 @@
 <template>
   <div class="monitor-table">
-    <h1>{{ serverName }}</h1>
+    <h1>
+      <template>{{ serverName }}</template>
+      <span class="type">({{ type }} - Checked every 5 mins)</span>
+    </h1>
     <div class="grid">
       <div class="header">
         <div v-for="item in header" :key="item" class="header__item col">
@@ -23,6 +26,10 @@ export default {
       type: String,
       required: true,
     },
+    type: {
+      type: String,
+      required: true,
+    },
     data: {
       type: Array,
       required: true,
@@ -38,6 +45,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.type {
+  margin-left: 6px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+}
+
 .grid {
   overflow-x: auto;
   background-color: #424242;

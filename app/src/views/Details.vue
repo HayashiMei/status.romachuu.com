@@ -1,6 +1,6 @@
 <template>
   <div class="details">
-    <monitor-table :server-name="name" :data="ratios"></monitor-table>
+    <monitor-table :server-name="name" :type="type" :data="ratios"></monitor-table>
     <response-time :data="responseTimes"></response-time>
     <monitor-log :server-name="name" :data="logs"></monitor-log>
   </div>
@@ -22,6 +22,7 @@ export default {
   },
   data: () => ({
     name: '',
+    type: '',
     ratios: [],
     responseTimes: [],
     logs: [],
@@ -71,9 +72,10 @@ export default {
     convertData(data) {
       const { days, psp } = data;
       const currentMonitor = psp.monitors[0];
-      const { friendly_name, customuptimeranges, response_times, allLogs } = currentMonitor;
+      const { friendly_name, typeStr, customuptimeranges, response_times, allLogs } = currentMonitor;
 
       this.name = friendly_name.split('/')[1];
+      this.type = typeStr;
       this.ratios = customuptimeranges.map((item, index) => ({
         label: days[index],
         value: item.ratio + '%',
