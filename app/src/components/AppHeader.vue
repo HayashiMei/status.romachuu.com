@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import Logo from './Logo.vue';
 
 export default {
@@ -22,37 +22,42 @@ export default {
   },
   data: () => ({
     title: "Roma's monitors",
-    cd: 60,
   }),
   computed: {
     computedClass() {
       return [
-        'status__bullet',
+        'status__beat',
         {
-          'status__bullet--success': this.downCount === 0,
-          'status__bullet--danger': this.monitorCount / 2 < this.downCount,
-          'status__bullet--warning': this.monitorCount / 2 > this.downCount && this.downCount !== 0,
+          'status__beat--success': this.downCount === 0,
+          'status__beat--danger': this.monitorCount / 2 < this.downCount,
+          'status__beat--warning': this.monitorCount / 2 > this.downCount && this.downCount !== 0,
         },
       ];
     },
-    ...mapState(['showLoading']),
+    ...mapState(['showLoading', 'cd']),
   },
   mounted() {
     setInterval(this.updateCountdown, 1000);
   },
   methods: {
+    ...mapMutations(['updateCD']),
     updateCountdown() {
-      if (this.showLoading) {
-        return;
-      }
+      this.updateCD();
 
-      if (this.cd === 1) {
-        this.cd = 60;
+      if (this.cd === 60) {
         this.$emit('countdown');
-        return;
       }
+      // if (this.showLoading) {
+      //   return;
+      // }
 
-      this.cd--;
+      // if (this.cd === 1) {
+      //   this.cd = 60;
+      //   this.$emit('countdown');
+      //   return;
+      // }
+
+      // this.cd--;
     },
     handleClick() {
       this.$router.push({ name: 'home' });
@@ -70,6 +75,11 @@ header {
   padding: 0 20px;
   font-family: 'Roboto Mono', monospace;
   background-color: #212121;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+  @media (max-width: 720px) {
+    justify-content: center;
+  }
 }
 
 .title {
@@ -89,18 +99,40 @@ header {
   display: flex;
   align-items: center;
 
-  .status__bullet {
+  @media (max-width: 720px) {
+    display: none;
+  }
+
+  .status__beat {
     width: 28px;
     height: 28px;
     margin-right: 15px;
     border-radius: 100%;
     background-color: #4caf50;
+    animation: beat 1s cubic-bezier(0.7, -0.02, 0.24, 0.98) 0s infinite normal none running;
   }
 
   .status__cd {
     margin-right: 1px;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1;
+  }
+}
+
+@keyframes beat {
+  0% {
+    transform: scale(1);
+    border-radius: 50%;
+  }
+
+  50% {
+    transform: scale(0.7);
+    border-radius: 50%;
+  }
+
+  100% {
+    transform: scale(1);
+    border-radius: 50%;
   }
 }
 </style>

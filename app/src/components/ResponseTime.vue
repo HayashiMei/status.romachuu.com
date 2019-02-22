@@ -1,6 +1,6 @@
 <template>
   <div class="response-times">
-    <h1 class="md-title">ResponseTime</h1>
+    <h1>Response Time</h1>
     <div ref="chart" class="chart"></div>
   </div>
 </template>
@@ -11,12 +11,6 @@ import 'echarts/lib/chart/line';
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
 
-const LINE_COLOR = '#e6ecf2';
-const TITLE_COLOR = '#303233';
-const AXIS_LABEL_COLOR = '#919599';
-const ITEM_COLOR = '#ffad75';
-const ITEM_BORDER_COLOR = 'rgba(255, 173, 117, 0.3)';
-
 export default {
   props: {
     data: {
@@ -26,7 +20,6 @@ export default {
   },
   data: () => ({
     myChart: null,
-    duration: 0,
   }),
   computed: {
     options() {
@@ -119,7 +112,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .response-times {
   overflow: hidden;
 

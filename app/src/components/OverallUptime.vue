@@ -1,6 +1,6 @@
 <template>
   <div class="overall-uptime">
-    <h1 class="md-title">Overall Uptime</h1>
+    <h1>Overall Uptime</h1>
     <div class="ratio-item">
       <span class="ratio-item__inner"
         :class="{ success: Number(last24Hours) >= 85, warning: Number(last24Hours) < 85 }"
@@ -55,7 +55,7 @@ export default {
   font-size: 18px;
 
   .ratio-item__inner {
-    font-weight: bold;
+    margin-right: 6px;
   }
 }
 

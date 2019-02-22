@@ -1,6 +1,6 @@
 <template>
   <div class="quick-stats">
-    <h1 class="md-title">Quick Stats</h1>
+    <h1>Quick Stats</h1>
     <div class="quick-stats-item">
       <div class="status__bullet up"></div>
       <div class="quick-stats-item__count up">
@@ -41,8 +41,6 @@ export default {
       required: true,
     },
   },
-  data: () => ({}),
-  computed: {},
 };
 </script>
 

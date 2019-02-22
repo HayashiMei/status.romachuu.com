@@ -1,2 +1,26 @@
-@import 'reset.scss';
-@import 'public.scss';
+html {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #303030;
+}
+
+body,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2em;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+button {
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+}

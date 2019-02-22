@@ -1,7 +1,6 @@
 <template>
   <div class="dashboard-table">
-    <h1 class="md-title">{{ title }}</h1>
-
+    <h1>{{ title }}</h1>
     <div class="grid">
       <div class="header">
         <div v-for="item in header" :key="item" class="header__item col">
@@ -102,8 +101,7 @@ export default {
 
 .header__item {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 14px;
 
   div {
     padding: 14px 10px;

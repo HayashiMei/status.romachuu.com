@@ -12,11 +12,16 @@ const store = new Vuex.Store({
     msgTitle: '',
     msgSubTitle: '',
     msgContent: '',
+    cd: 60,
   },
   getters: {},
   actions: {},
   mutations: {
     setShowLoading(state, showLoading) {
+      if (state.showLoading && !showLoading) {
+        state.cd = 60;
+      }
+
       state.showLoading = showLoading;
     },
     setShowMsg(state, { showMsg, msgTitle, msgSubTitle, msgContent }) {
@@ -31,6 +36,18 @@ const store = new Vuex.Store({
         state.msgSubTitle = '';
         state.msgContent = '';
       }
+    },
+    updateCD(state) {
+      if (state.showLoading) {
+        return;
+      }
+
+      if (state.cd === 1) {
+        state.cd = 60;
+        return;
+      }
+
+      state.cd--;
     },
   },
   strict: debug,

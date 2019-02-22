@@ -1,7 +1,8 @@
 <template>
   <div class="details">
-    <monitor-table :title="name" :data="ratios"></monitor-table>
-    <response-time :data="responseTimes"/>
+    <monitor-table :server-name="name" :data="ratios"></monitor-table>
+    <response-time :data="responseTimes"></response-time>
+    <monitor-log :server-name="name" :data="logs"></monitor-log>
   </div>
 </template>
 
@@ -9,6 +10,7 @@
 import { mapMutations } from 'vuex';
 import MonitorTable from '../components/MonitorTable.vue';
 import ResponseTime from '../components/ResponseTime.vue';
+import MonitorLog from '../components/MonitorLog.vue';
 import API from '../api';
 // import monitorData from '../monitor.json';
 
@@ -16,11 +18,13 @@ export default {
   components: {
     MonitorTable,
     ResponseTime,
+    MonitorLog,
   },
   data: () => ({
     name: '',
     ratios: [],
     responseTimes: [],
+    logs: [],
   }),
   computed: {},
   beforeCreate() {
@@ -67,7 +71,7 @@ export default {
     convertData(data) {
       const { days, psp } = data;
       const currentMonitor = psp.monitors[0];
-      const { friendly_name, customuptimeranges, response_times } = currentMonitor;
+      const { friendly_name, customuptimeranges, response_times, allLogs } = currentMonitor;
 
       this.name = friendly_name.split('/')[1];
       this.ratios = customuptimeranges.map((item, index) => ({
@@ -76,6 +80,12 @@ export default {
         classes: [item.label],
       }));
       this.responseTimes = response_times.sort((a, b) => a.datetime - b.datetime).map(item => [item.datetime * 1000, item.value]);
+      this.logs = allLogs.map(item => ({
+        status: item.statusStr,
+        datetime: item.dateTimeStr,
+        reason: item.reasonTitle,
+        duration: item.durationStr,
+      }));
     },
   },
 };

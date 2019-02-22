@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://status.romachuu.com';
+axios.defaults.baseURL = 'https://api.romachuu.com';
 
 const http = axios.create();
 
