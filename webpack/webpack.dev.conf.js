@@ -12,7 +12,7 @@ module.exports = merge(webpackBaseConfig, {
   output: {
     filename: `[name].js`,
     path: path.resolve(__dirname, '../dist'),
-    publicPath: '',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.vue', 'json'],

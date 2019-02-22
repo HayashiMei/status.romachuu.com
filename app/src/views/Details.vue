@@ -23,6 +23,11 @@ export default {
     responseTimes: [],
   }),
   computed: {},
+  beforeCreate() {
+    if (!this.$route.params.id) {
+      this.$router.push({ name: 'home' });
+    }
+  },
   mounted() {
     this.fetchData();
   },

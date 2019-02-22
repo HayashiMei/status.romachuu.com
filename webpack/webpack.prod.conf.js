@@ -16,7 +16,7 @@ module.exports = merge(webpackBaseConfig, {
     path: path.resolve(__dirname, '../dist/'),
     filename: 'js/[name].[chunkhash:8].js',
     chunkFilename: 'js/[id].[chunkhash:8].js',
-    publicPath: '',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.vue'],
