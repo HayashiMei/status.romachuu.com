@@ -110,7 +110,7 @@ export default {
         .catch(e => {
           this.setShowMsg({
             showMsg: true,
-            msgTitle: e.message,
+            msgTitle: 'Error',
             msgSubTitle: e.message,
             msgContent: 'An error occurred, please try again later...',
           });

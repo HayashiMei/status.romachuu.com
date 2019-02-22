@@ -53,7 +53,7 @@ export default {
         })
         .catch(e => {
           this.setShowMsg({
-            showMsg: true,
+            showMsg: 'Error',
             msgTitle: e.message,
             msgSubTitle: e.message,
             msgContent: 'An error occurred, please try again later...',
