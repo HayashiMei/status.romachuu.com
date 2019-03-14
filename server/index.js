@@ -17,19 +17,17 @@ app.use(bodyParser.json());
 
 app.get('/getMonitorList', async (req, res) => {
   api.getDashboard().then(resp => {
-    res.end(JSON.stringify(resp));
+    res.end(JSON.stringify(resp.data));
   });
 });
 
 app.get('/getMonitor', async (req, res) => {
   api.getDetails(req.query.m).then(resp => {
-    res.end(JSON.stringify(resp));
+    res.end(JSON.stringify(resp.data));
   });
 });
 
-var server = app.listen(1090, function() {
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('express start, http://%s:%s', host, port);
+const server = app.listen(1090, function() {
+  const { address, port } = server.address();
+  console.log('express start, http://%s:%s', address, port);
 });
