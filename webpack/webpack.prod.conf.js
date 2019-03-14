@@ -36,8 +36,7 @@ module.exports = merge(webpackBaseConfig, {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], {
-      root: path.resolve(__dirname, '../'),
+    new CleanWebpackPlugin({
       verbose: true,
     }),
     new HtmlWebpackPlugin({
