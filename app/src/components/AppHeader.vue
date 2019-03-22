@@ -44,20 +44,9 @@ export default {
     updateCountdown() {
       this.updateCD();
 
-      if (this.cd === 60) {
+      if (this.cd === 1) {
         this.$emit('countdown');
       }
-      // if (this.showLoading) {
-      //   return;
-      // }
-
-      // if (this.cd === 1) {
-      //   this.cd = 60;
-      //   this.$emit('countdown');
-      //   return;
-      // }
-
-      // this.cd--;
     },
     handleClick() {
       this.$router.push({ name: 'home' });

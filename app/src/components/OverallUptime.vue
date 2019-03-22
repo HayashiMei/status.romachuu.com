@@ -25,7 +25,7 @@
 <script>
 export default {
   props: {
-    ratios: {
+    uptime: {
       type: Object,
       required: true,
     },
@@ -37,13 +37,13 @@ export default {
   }),
   computed: {
     last24Hours() {
-      return this.ratios.l1.ratio;
+      return this.uptime.l1.ratio;
     },
     last7Days() {
-      return this.ratios.l7.ratio;
+      return this.uptime.l7.ratio;
     },
     last30Days() {
-      return this.ratios.l30.ratio;
+      return this.uptime.l30.ratio;
     },
   },
 };

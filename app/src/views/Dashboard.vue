@@ -3,7 +3,7 @@
     <dashboard-table title="Server" :header="header" :data="serverData"></dashboard-table>
     <dashboard-table title="Site" :header="header" :data="siteData"></dashboard-table>
     <div class="overview">
-      <overall-uptime v-if="ratios" :ratios="ratios" class="overview__item"></overall-uptime>
+      <overall-uptime v-if="uptime" :uptime="uptime" class="overview__item"></overall-uptime>
       <latest-downtime :content="latestDownTimeStr" class="overview__item"></latest-downtime>
       <quick-stats
         v-if="counts"
@@ -30,7 +30,7 @@ export default {
   data: () => ({
     monitors: [],
     days: [],
-    ratios: null,
+    uptime: null,
     latestDownTimeStr: '',
     counts: null,
   }),
@@ -58,67 +58,65 @@ export default {
     ...mapMutations(['setShowLoading', 'setShowMsg']),
     convert(monitors, label) {
       return monitors
-        .filter(item => ~item.friendly_name.indexOf(label))
+        .filter(item => ~item.name.indexOf(label))
         .map(item => [
           {
             label: 'Last 7 Days',
-            value: item.oneWeekRange.ratio + '%',
-            classes: ['text', item.oneWeekRange.label],
+            value: item.weeklyRatio.ratio + '%',
+            classes: ['text', item.weeklyRatio.label],
           },
           {
             label: 'Name',
-            value: item.friendly_name.replace(label, ''),
-            id: item.id,
+            value: item.name.replace(label, ''),
+            id: item.monitorId,
           },
           {
             label: 'Type',
-            value: item.typeStr,
+            value: item.type,
           },
           {
             label: 'Interval',
-            value: item.intervalMin + ' mins',
+            value: '5  mins',
           },
           ...this.days.map((label, index) => ({
             label,
-            value: item.customuptimeranges[index].ratio + '%',
-            classes: ['block', item.customuptimeranges[index].label],
+            value: item.dailyRatios[index].ratio + '%',
+            classes: ['block', item.dailyRatios[index].label],
           })),
         ]);
     },
     fetchData() {
-      // this.monitors = statusData.psp.monitors;
-      // this.days = statusData.days;
-      // this.ratios = statusData.psp.pspStats.ratios;
-      // this.counts = statusData.psp.pspStats.counts;
-      // this.latestDownTimeStr = statusData.psp.latestDownTimeStr;
+      // this.monitors = data.psp.monitors;
+      // this.days = data.days;
+      // this.uptime = data.statistics.uptime;
+      // this.counts = data.statistics.counts;
+      // this.latestDownTimeStr = data.statistics.latest_downtime;
       // setTimeout(() => {
       //   this.setShowLoading(false);
       // }, 500);
 
-      API.getDashboard()
-        .then(({ data }) => {
-          this.monitors = data.psp.monitors;
-          this.days = data.days;
-          this.ratios = data.psp.pspStats.ratios;
-          this.counts = data.psp.pspStats.counts;
-          this.latestDownTimeStr = data.psp.latestDownTimeStr;
+      API.getDashboard().then(({ data }) => {
+        this.monitors = data.psp.monitors;
+        this.days = data.days;
+        this.uptime = data.statistics.uptime;
+        this.counts = data.statistics.counts;
+        this.latestDownTimeStr = data.statistics.latest_downtime;
 
-          setTimeout(() => {
-            this.setShowLoading(false);
-          }, 250);
-        })
-        .catch(e => {
-          this.setShowMsg({
-            showMsg: true,
-            msgTitle: 'Error',
-            msgSubTitle: e.message,
-            msgContent: 'An error occurred, please try again later...',
-          });
-
-          setTimeout(() => {
-            this.setShowLoading(false);
-          }, 250);
+        setTimeout(() => {
+          this.setShowLoading(false);
+        }, 250);
+      }).catch(e => {
+        this.setShowMsg({
+          showMsg: true,
+          msgTitle: 'Error',
+          msgSubTitle: e.message,
+          msgContent: 'An error occurred, please try again later...',
         });
+
+        setTimeout(() => {
+          this.setShowLoading(false);
+        }, 250);
+      });
     },
   },
 };

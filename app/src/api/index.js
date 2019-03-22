@@ -1,10 +1,6 @@
 import http from '../utils/http';
 
 export default {
-  getDashboard: async () => {
-    return await http.get('/getMonitorList');
-  },
-  getDetails: async id => {
-    return await http.get(`/getMonitor?m=${id}`);
-  },
+  getDashboard: () => http.get(`/getMonitorList?page=1&_=${new Date().getTime()}`),
+  getDetails: id => http.get(`/getMonitor?m=${id}&_=${new Date().getTime()}`),
 };

@@ -49,44 +49,60 @@ export default {
       // setTimeout(() => {
       //   this.setShowLoading(false);
       // }, 500);
-      API.getDetails(this.$route.params.id)
-        .then(({ data }) => {
-          this.convertData(data);
-          setTimeout(() => {
-            this.setShowLoading(false);
-          }, 250);
-        })
-        .catch(e => {
-          this.setShowMsg({
-            showMsg: 'Error',
-            msgTitle: e.message,
-            msgSubTitle: e.message,
-            msgContent: 'An error occurred, please try again later...',
-          });
-
-          setTimeout(() => {
-            this.setShowLoading(false);
-          }, 250);
+      API.getDetails(this.$route.params.id).then(({ data }) => {
+        this.convertData(data);
+        setTimeout(() => {
+          this.setShowLoading(false);
+        }, 250);
+      }).catch(e => {
+        this.setShowMsg({
+          showMsg: 'Error',
+          msgTitle: e.message,
+          msgSubTitle: e.message,
+          msgContent: 'An error occurred, please try again later...',
         });
+
+        setTimeout(() => {
+          this.setShowLoading(false);
+        }, 250);
+      });
     },
     convertData(data) {
-      const { days, psp } = data;
-      const currentMonitor = psp.monitors[0];
-      const { friendly_name, typeStr, customuptimeranges, response_times, allLogs } = currentMonitor;
+      const { days, monitor } = data;
+      const { name, type, dailyRatios, responseTimes, logs } = monitor;
 
-      this.name = friendly_name.split('/')[1];
-      this.type = typeStr;
-      this.ratios = customuptimeranges.map((item, index) => ({
+      this.name = name.split('/')[1];
+      this.type = type;
+      this.ratios = dailyRatios.map((item, index) => ({
         label: days[index],
         value: item.ratio + '%',
         classes: [item.label],
       }));
-      this.responseTimes = response_times.sort((a, b) => a.datetime - b.datetime).map(item => [item.datetime * 1000, item.value]);
-      this.logs = allLogs.map(item => ({
-        status: item.statusStr,
-        datetime: item.dateTimeStr,
-        reason: item.reasonTitle,
-        duration: item.durationStr,
+
+      let border = 0;
+      for (let i = 1; i < responseTimes.length; i++) {
+        if (responseTimes[i - 1].datetime > responseTimes[i].datetime) {
+          border = i;
+          break;
+        }
+      }
+
+      const now = new Date();
+      const today = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+
+      const l24 = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+      const yesterday = `${l24.getFullYear()}-${l24.getMonth() + 1}-${l24.getDate()}`;
+
+      responseTimes.forEach((item, index) => {
+        item.datetime = new Date(`${index < border ? yesterday : today} ${item.datetime}`).getTime();
+      });
+
+      this.responseTimes = responseTimes.map(item => [item.datetime, item.value]);
+      this.logs = logs.map(item => ({
+        status: item.label,
+        datetime: item.date,
+        reason: item.reason,
+        duration: item.duration,
       }));
     },
   },

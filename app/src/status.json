@@ -1,124 +1,84 @@
 {
+  "status": "ok",
   "psp": {
+    "perPage": 20,
+    "totalMonitors": 4,
     "monitors": [
       {
-        "id": 781995608,
-        "friendly_name": "Server/AWS-东京",
-        "customuptimeranges": [
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "100.00" },
-          { "label": "empty", "ratio": "0.000" },
-          { "label": "empty", "ratio": "0.000" },
-          { "label": "empty", "ratio": "0.000" },
-          { "label": "empty", "ratio": "0.000" },
-          { "label": "empty", "ratio": "0.000" }
-        ],
-        "oneWeekRange": { "label": "success", "ratio": "100.00" },
-        "typeStr": "ping",
-        "intervalMin": 5,
-        "allLogs": [
-          { "statusStr": "up", "durationStr": "22 hrs, 41 mins.", "dateTimeStr": "2019-02-18 16:02:15", "reasonStr": "Successful Response", "reasonTitle": "Successful Response", "label": "success", "timestamp": 1550476935000 }
-        ],
-        "status": 2,
-        "statusLabel": "success",
-        "statusNumber": 2
+        "monitorId": 781995608,
+        "statusClass": "success",
+        "weeklyRatio": { "ratio": "100.00", "label": "success" },
+        "name": "Server/AWS-\u4e1c\u4eac",
+        "type": "ping",
+        "dailyRatios": [
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" }
+        ]
       },
       {
-        "id": 781963706,
-        "friendly_name": "Server/GCP-亚洲东部1",
-        "customuptimeranges": [
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "100.00" }
-        ],
-        "oneWeekRange": { "label": "success", "ratio": "100.00" },
-        "typeStr": "ping",
-        "intervalMin": 5,
-        "allLogs": [
-          { "statusStr": "up", "durationStr": "142 hrs, 52 mins.", "dateTimeStr": "2019-02-13 15:51:11", "reasonStr": "Successful Response", "reasonTitle": "Successful Response", "label": "success", "timestamp": 1550044271000 }
-        ],
-        "status": 2,
-        "statusLabel": "success",
-        "statusNumber": 2
+        "monitorId": 781963706,
+        "statusClass": "success",
+        "weeklyRatio": { "ratio": "100.00", "label": "success" },
+        "name": "Server/GCP-\u4e9a\u6d32\u4e1c\u90e81",
+        "type": "ping",
+        "dailyRatios": [
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" }
+        ]
       },
       {
-        "id": 781963754,
-        "friendly_name": "Site/Blog",
-        "customuptimeranges": [
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "99.653" },
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "99.931" },
-          { "label": "success", "ratio": "100.00" }
-        ],
-        "oneWeekRange": { "label": "success", "ratio": "99.930" },
-        "typeStr": "http",
-        "intervalMin": 5,
-        "allLogs": [
-          { "statusStr": "up", "durationStr": "24 hrs, 34 mins.", "dateTimeStr": "2019-02-13 16:06:58", "reasonStr": "OK", "reasonTitle": "OK", "label": "success", "timestamp": 1550045218000 },
-          { "statusStr": "down", "durationStr": "0 hrs, 1 mins.", "dateTimeStr": "2019-02-14 16:41:31", "reasonStr": "Not Found", "reasonTitle": "Not Found", "label": "danger", "timestamp": 1550133691000 },
-          { "statusStr": "up", "durationStr": "93 hrs, 48 mins.", "dateTimeStr": "2019-02-14 16:42:31", "reasonStr": "OK", "reasonTitle": "OK", "label": "success", "timestamp": 1550133751000 },
-          { "statusStr": "down", "durationStr": "0 hrs, 5 mins.", "dateTimeStr": "2019-02-18 14:31:05", "reasonStr": "Not Found", "reasonTitle": "Not Found", "label": "danger", "timestamp": 1550471465000 },
-          { "statusStr": "up", "durationStr": "24 hrs, 7 mins.", "dateTimeStr": "2019-02-18 14:36:05", "reasonStr": "OK", "reasonTitle": "OK", "label": "success", "timestamp": 1550471765000 }
-        ],
-        "status": 2,
-        "statusLabel": "success",
-        "statusNumber": 2
+        "monitorId": 781963754,
+        "statusClass": "success",
+        "weeklyRatio": { "ratio": "100.00", "label": "success" },
+        "name": "Site/Blog",
+        "type": "http(s)",
+        "dailyRatios": [
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" }
+        ]
       },
       {
-        "id": 781963759,
-        "friendly_name": "Site/Vtuber Channel Ranking",
-        "customuptimeranges": [
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "99.654" },
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "100.00" },
-          { "label": "success", "ratio": "100.00" }
-        ],
-        "oneWeekRange": { "label": "success", "ratio": "99.942" },
-        "typeStr": "http",
-        "intervalMin": 5,
-        "allLogs": [
-          { "statusStr": "up", "durationStr": "118 hrs, 22 mins.", "dateTimeStr": "2019-02-13 16:08:26", "reasonStr": "OK", "reasonTitle": "OK", "label": "success", "timestamp": 1550045306000 },
-          { "statusStr": "down", "durationStr": "0 hrs, 4 mins.", "dateTimeStr": "2019-02-18 14:31:06", "reasonStr": "Not Found", "reasonTitle": "Not Found", "label": "danger", "timestamp": 1550471466000 },
-          { "statusStr": "up", "durationStr": "24 hrs, 7 mins.", "dateTimeStr": "2019-02-18 14:36:05", "reasonStr": "OK", "reasonTitle": "OK", "label": "success", "timestamp": 1550471765000 }
-        ],
-        "status": 2,
-        "statusLabel": "success",
-        "statusNumber": 2
+        "monitorId": 781963759,
+        "statusClass": "success",
+        "weeklyRatio": { "ratio": "100.00", "label": "success" },
+        "name": "Site/Vtuber Channel Ranking",
+        "type": "http(s)",
+        "dailyRatios": [
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" },
+          { "ratio": "100.00", "label": "success" }
+        ]
       }
-    ],
-    "name": "Roma's monitors",
-    "logo": "694699-1550045931.png",
-    "url_key": "wkKGzU4zO",
-    "hide_ur_links": false,
-    "sort": 1,
-    "custom_css": "",
-    "announcements": [],
-    "monitorCount": 4,
-    "latestDownTimeStr": "It was recorded (for the monitor Site/Vtuber Channel Ranking) on 2019-02-18 14:31:06 and the downtime lasted for 0 hrs, 4 mins.",
-    "latestDownLog": { "type": 1, "datetime": 1550471466, "duration": 299, "reason": { "code": "404", "detail": "Not Found" }, "mon": { "friendly_name": "Site/Vtuber Channel Ranking" } },
-    "hasActiveAnnounce": false,
-    "activeAnnouncements": 0,
-    "firstAnnounceTitle": null,
-    "firstAnnounceDescInline": null,
-    "pspStats": {
-      "ratios": { "l1": { "label": "success", "ratio": "100.00" }, "l7": { "label": "success", "ratio": "99.968" }, "l30": { "label": "success", "ratio": "99.968" } },
-      "downDurations": { "l1": 0, "l7": 10, "l30": 10 },
-      "d": { "l1": 0, "l7": 659, "l30": 659 },
-      "counts": { "up": 4, "down": 0, "paused": 0 }
-    },
-    "downCount": 0,
-    "tzdiff": 480
+    ]
   },
-  "stat": "ok",
-  "days": ["19 Feb", "18 Feb", "17 Feb", "16 Feb", "15 Feb", "14 Feb", "13 Feb"]
+  "days": ["22 Mar", "21 Mar", "20 Mar", "19 Mar", "18 Mar", "17 Mar", "16 Mar"],
+  "statistics": {
+    "uptime": {
+      "l1": { "label": "success", "ratio": "100.00", "downtime": "(No downtime)" },
+      "l7": { "label": "success", "ratio": "100.00", "downtime": "(No downtime)" },
+      "l30": { "label": "success", "ratio": "100.00", "downtime": "(No downtime)" }
+    },
+    "latest_downtime": "It was recorded (for the monitor Site/Vtuber Channel Ranking) on 2019-02-18 14:31:06 and the downtime lasted for 0 hrs, 4 mins.",
+    "counts": { "up": 4, "down": 0, "paused": 0 },
+    "count_result": "All Clear"
+  }
 }
