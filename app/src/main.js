@@ -1,16 +1,11 @@
 import Vue from 'vue';
 import '../scss/index.scss';
 
-import Antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
-
 import VueScroll from 'vuescroll/dist/vuescroll-native';
 import 'vuescroll/dist/vuescroll.css';
 
 import router from './router';
 import store from './store';
-
-Vue.use(Antd);
 
 Vue.use(VueScroll);
 Vue.prototype.$vuescrollConfig = {
