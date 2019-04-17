@@ -186,6 +186,7 @@ export default {
     transform: translateY(-50%);
     transition: all 0.4s ease-out 0s;
     animation: button 0.45s ease 0.4s 1 normal forwards running;
+    outline: none;
 
     &.is-opened {
       &.btn--close {
