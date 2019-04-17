@@ -1,9 +1,8 @@
 import Vue from 'vue';
 import '../scss/index.scss';
 
-// import VueMaterial from 'vue-material';
-// import 'vue-material/dist/vue-material.min.css';
-// import 'vue-material/dist/theme/default-dark.css';
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
 
 import VueScroll from 'vuescroll/dist/vuescroll-native';
 import 'vuescroll/dist/vuescroll.css';
@@ -11,7 +10,7 @@ import 'vuescroll/dist/vuescroll.css';
 import router from './router';
 import store from './store';
 
-// Vue.use(VueMaterial);
+Vue.use(Antd);
 
 Vue.use(VueScroll);
 Vue.prototype.$vuescrollConfig = {

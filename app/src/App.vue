@@ -20,16 +20,19 @@
         @close="handleClose"
       ></message-modal>
     </transition>-->
-    <div
-      ref="count"
-      :class="{ 'isAnimating': isAnimating, 'isAnimatingEnd': isAnimatingEnd }"
-      @click="start"
-    >{{ count }}</div>
+    <div ref="count" @click="start" class="count">{{ count }}</div>
+    <a-input-group compact class="input">
+      <a-input v-model="t1" style="width: 25%" />
+      <a-input v-model="stopTime" style="width: 25%" />
+      <a-input v-model="t2" style="width: 25%" />
+      <a-input v-model="fontSize" style="width: 25%" />
+    </a-input-group>
   </div>
 </template>
 
 <script>
 import BezierEasing from 'bezier-easing';
+import Velocity from 'velocity-animate';
 // import { mapState, mapMutations } from 'vuex';
 
 // import AppHeader from './components/AppHeader.vue';
@@ -37,7 +40,7 @@ import BezierEasing from 'bezier-easing';
 // import Loading from './components/Loading.vue';
 // import MessageModal from './components/MessageModal.vue';
 
-const bezier = BezierEasing(.25,.1,.25,1);
+const bezier = BezierEasing(0.25, 0.1, 0.25, 1);
 
 export default {
   // components: { AppHeader, AppFooter, Loading, MessageModal },
@@ -47,6 +50,10 @@ export default {
     isAnimating: false,
     isAnimatingEnd: false,
     animeTime: 0,
+    t1: 400,
+    stopTime: 100,
+    t2: 100,
+    fontSize: 2,
   }),
   computed: {
     // ...mapState(['showLoading', 'showMsg', 'msgTitle', 'msgSubTitle', 'msgContent']),
@@ -60,23 +67,27 @@ export default {
     //   this.$refs.dashboard.fetchData();
     // },
     start() {
-      this.count = 0;
+      if (this.isAnimating) {
+        return;
+      }
+
       this.isAnimating = true;
-      setTimeout(this.end, 2500);
+      this.count = 0;
+      Velocity(this.$refs.count, { scale: this.fontSize }, { duration: this.t1, easing: [0.25, 0.1, 0.25, 1] });
+      setTimeout(this.end, Number(this.t1) + Number(this.stopTime));
       requestAnimationFrame(this.step);
     },
     end() {
-      this.isAnimatingEnd = true;
+      Velocity(this.$refs.count, { scale: 1 }, { duration: this.t2 });
       setTimeout(() => {
         this.isAnimating = false;
-        this.isAnimatingEnd = false;
-      }, 1000);
+      }, this.t2);
     },
     step(timestamp) {
       this.animeTime = this.animeTime || timestamp;
 
-      if (timestamp - this.animeTime < 2000) {
-        const f = bezier((timestamp - this.animeTime) / 2000);
+      if (timestamp - this.animeTime < Number(this.t1)) {
+        const f = bezier((timestamp - this.animeTime) / Number(this.t1));
         const nextCount = Math.ceil(f * this.target);
         this.count = nextCount;
         console.info((timestamp - this.animeTime) / 2000, f, this.count);
@@ -94,6 +105,7 @@ export default {
 <style lang="scss" scoped>
 .app {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -106,11 +118,21 @@ export default {
   font-size: 30px;
 
   .isAnimating {
-    animation: up 2s ease 0s normal forwards running;
+    animation: up 400ms ease 0s normal forwards running;
   }
 
   .isAnimatingEnd {
-    animation: down 1s linear 0s normal forwards running;
+    animation: down 100ms linear 0s normal forwards running;
+  }
+
+  .count {
+    margin-bottom: 10px;
+  }
+
+  .input {
+    position: absolute;
+    bottom: 10%;
+    width: 50%;
   }
 }
 
