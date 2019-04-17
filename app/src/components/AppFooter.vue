@@ -11,7 +11,7 @@
       <span class="with-love">
         <i class="fa fa-star"></i>
       </span>
-      <span class="author" itemprop="copyrightHolder">{{ ' ' + author }}</span>
+      <a class="author" itemprop="copyrightHolder" href="https://github.com/HayashiMei">{{ author }}</a>
     </div>
   </footer>
 </template>
@@ -71,6 +71,17 @@ footer {
   .with-love {
     margin: 0 5px;
     color: #f44336;
+  }
+
+  .author {
+    color: initial;
+    text-decoration: none;
+    transition: color 0.2s linear 0s;
+
+    &:hover {
+      color: #f44336;
+      text-decoration: underline;
+    }
   }
 }
 </style>
