@@ -48,6 +48,7 @@
   "dependencies": {
     "@babel/runtime": "^7.4.3",
     "axios": "^0.18.0",
+    "bezier-easing": "^2.1.0",
     "core-js": "^3.0.1",
     "echarts": "^4.2.1",
     "vue": "^2.6.10",
