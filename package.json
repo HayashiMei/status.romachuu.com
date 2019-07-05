@@ -15,10 +15,10 @@
   "author": "HayashiMei <hayashi@kato-megumi.com> (https://blog.romachuu.com)",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "7.4.5",
+    "@babel/core": "7.5.0",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
     "@babel/plugin-transform-runtime": "7.5.0",
-    "@babel/preset-env": "7.4.5",
+    "@babel/preset-env": "7.5.0",
     "autoprefixer": "9.6.0",
     "babel-loader": "8.0.6",
     "chalk": "2.4.2",
@@ -45,13 +45,13 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "dependencies": {
-    "@babel/runtime": "7.4.5",
+    "@babel/runtime": "7.5.0",
     "axios": "0.19.0",
     "core-js": "3.1.4",
     "echarts": "4.2.1",
     "vue": "2.6.10",
     "vue-router": "3.0.7",
-    "vuescroll": "4.13.0",
+    "vuescroll": "4.13.1",
     "vuex": "3.1.1"
   }
 }
