@@ -4,7 +4,7 @@ import '../scss/index.scss';
 import VueScroll from 'vuescroll/dist/vuescroll-native';
 import 'vuescroll/dist/vuescroll.css';
 
-import router from './router';
+import router from './routers';
 import store from './store';
 
 Vue.use(VueScroll);
