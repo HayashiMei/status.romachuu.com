@@ -7395,10 +7395,10 @@ vue@2.6.11:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
 
-vuescroll@4.14.4:
-  version "4.14.4"
-  resolved "https://registry.npm.taobao.org/vuescroll/download/vuescroll-4.14.4.tgz#5bb181bd851bdd7a4b215083039968853a086cf1"
-  integrity sha1-W7GBvYUb3XpLIVCDA5lohToIbPE=
+vuescroll@4.15.0:
+  version "4.15.0"
+  resolved "https://registry.yarnpkg.com/vuescroll/-/vuescroll-4.15.0.tgz#5f26f5cbc3d994771d89ce2be18f89f7391ab28b"
+  integrity sha512-BdAZlO0t54nkVL+iTDJu5ZyA8sL1UZymWHUOVGTacblXezilQGDDzYrYl//OH7wKOMqOMEL4lDqT4Swp5aOrQw==
 
 vuex@3.1.2:
   version "3.1.2"
