@@ -2,16 +2,23 @@
   <footer>
     <div class="provided">
       <span>Provided by:</span>
-      <a href="https://uptimerobot.com" rel="nofollow">
-        <div class="uptime-logo"></div>
+      <a
+        href="https://uptimerobot.com"
+        rel="nofollow"
+      >
+        <div class="uptime-logo" />
       </a>
     </div>
     <div class="copyright">
       <template>{{ copyRightYear }}</template>
       <span class="with-love">
-        <i class="fa fa-star"></i>
+        <i class="fa fa-star" />
       </span>
-      <a class="author" itemprop="copyrightHolder" href="https://github.com/HayashiMei">{{ author }}</a>
+      <a
+        class="author"
+        itemprop="copyrightHolder"
+        href="https://github.com/HayashiMei"
+      >{{ author }}</a>
     </div>
   </footer>
 </template>

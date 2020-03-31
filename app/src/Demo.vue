@@ -1,11 +1,32 @@
 <template>
   <div class="app">
-    <div ref="count" @click="start" class="count">{{ count }}</div>
-    <a-input-group compact class="input">
-      <a-input v-model="t1" style="width: 25%"/>
-      <a-input v-model="stopTime" style="width: 25%"/>
-      <a-input v-model="t2" style="width: 25%"/>
-      <a-input v-model="fontSize" style="width: 25%"/>
+    <div
+      ref="count"
+      class="count"
+      @click="start"
+    >
+      {{ count }}
+    </div>
+    <a-input-group
+      compact
+      class="input"
+    >
+      <a-input
+        v-model="t1"
+        style="width: 25%;"
+      />
+      <a-input
+        v-model="stopTime"
+        style="width: 25%;"
+      />
+      <a-input
+        v-model="t2"
+        style="width: 25%;"
+      />
+      <a-input
+        v-model="fontSize"
+        style="width: 25%;"
+      />
     </a-input-group>
   </div>
 </template>

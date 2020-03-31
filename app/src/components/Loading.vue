@@ -1,11 +1,21 @@
 <template>
   <div class="loading">
     <div class="loading__icon">
-      <div v-for="i in 4" :key="i" class="loading__icon__point">
-        <div v-for="j in 3" :key="j"></div>
+      <div
+        v-for="i in 4"
+        :key="i"
+        class="loading__icon__point"
+      >
+        <div
+          v-for="j in 3"
+          :key="j"
+        />
       </div>
       <div class="loading__icon__block">
-        <div v-for="i in 4" :key="i"></div>
+        <div
+          v-for="i in 4"
+          :key="i"
+        />
       </div>
     </div>
   </div>

@@ -16,7 +16,11 @@
           <div>Duration</div>
         </div>
       </div>
-      <div v-for="(item, index) in data" :key="index" class="row">
+      <div
+        v-for="(item, index) in data"
+        :key="index"
+        class="row"
+      >
         <div class="row__item col col--status">
           <div :class="item.status">{{ item.status }}</div>
         </div>

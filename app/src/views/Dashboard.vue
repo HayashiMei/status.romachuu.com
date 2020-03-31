@@ -1,17 +1,32 @@
 <template>
   <div class="dashboard">
-    <dashboard-table title="Server" :header="header" :data="serverData"></dashboard-table>
-    <dashboard-table title="Site" :header="header" :data="siteData"></dashboard-table>
+    <dashboard-table
+      title="Server"
+      :header="header"
+      :data="serverData"
+    />
+    <dashboard-table
+      title="Site"
+      :header="header"
+      :data="siteData"
+    />
     <div class="overview">
-      <overall-uptime v-if="uptime" :uptime="uptime" class="overview__item"></overall-uptime>
-      <latest-downtime :content="latestDownTimeStr" class="overview__item"></latest-downtime>
+      <overall-uptime
+        v-if="uptime"
+        :uptime="uptime"
+        class="overview__item"
+      />
+      <latest-downtime
+        :content="latestDownTimeStr"
+        class="overview__item"
+      />
       <quick-stats
         v-if="counts"
         :up="counts.up"
         :down="counts.down"
         :paused="counts.paused"
         class="overview__item"
-      ></quick-stats>
+      />
     </div>
   </div>
 </template>

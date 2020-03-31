@@ -1,12 +1,15 @@
 <template>
   <header>
-    <div class="title" @click="handleClick">
-      <logo class="logo"></logo>
+    <div
+      class="title"
+      @click="handleClick"
+    >
+      <logo class="logo" />
       <span>{{ title }}</span>
     </div>
 
     <div class="status">
-      <span :class="computedClass"></span>
+      <span :class="computedClass" />
       <p class="status__cd">Refreshing in {{ cd }} secs</p>
     </div>
   </header>
@@ -21,7 +24,7 @@ export default {
     Logo,
   },
   data: () => ({
-    title: "Roma's monitors",
+    title: 'Roma\'s monitors',
   }),
   computed: {
     computedClass() {

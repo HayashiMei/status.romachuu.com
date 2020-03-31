@@ -1,8 +1,15 @@
 <template>
   <div class="details">
-    <monitor-table :server-name="name" :type="type" :data="ratios"></monitor-table>
-    <response-time :data="responseTimes"></response-time>
-    <monitor-log :server-name="name" :data="logs"></monitor-log>
+    <monitor-table
+      :server-name="name"
+      :type="type"
+      :data="ratios"
+    />
+    <response-time :data="responseTimes" />
+    <monitor-log
+      :server-name="name"
+      :data="logs"
+    />
   </div>
 </template>
 

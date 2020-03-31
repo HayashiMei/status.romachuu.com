@@ -2,21 +2,21 @@
   <div class="quick-stats">
     <h1>Quick Stats</h1>
     <div class="quick-stats-item">
-      <div class="status__bullet up"></div>
+      <div class="status__bullet up" />
       <div class="quick-stats-item__count up">
         <span>Up</span>
         <span>{{ up }}</span>
       </div>
     </div>
     <div class="quick-stats-item">
-      <div class="status__bullet down"></div>
+      <div class="status__bullet down" />
       <div class="quick-stats-item__count down">
         <span>Down</span>
         <span>{{ down }}</span>
       </div>
     </div>
     <div class="quick-stats-item">
-      <div class="status__bullet paused"></div>
+      <div class="status__bullet paused" />
       <div class="quick-stats-item__count paused">
         <span>Paused</span>
         <span>{{ paused }}</span>

@@ -1,7 +1,10 @@
 <template>
   <div class="response-times">
     <h1>Response Time</h1>
-    <div ref="chart" class="chart"></div>
+    <div
+      ref="chart"
+      class="chart"
+    />
   </div>
 </template>
 

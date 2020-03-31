@@ -3,18 +3,31 @@
     <h1>{{ title }}</h1>
     <div class="grid">
       <div class="header">
-        <div v-for="item in header" :key="item" class="header__item col">
+        <div
+          v-for="item in header"
+          :key="item"
+          class="header__item col"
+        >
           <div>{{ item }}</div>
         </div>
       </div>
-      <div v-for="(item, index) in data" :key="index" class="row">
+      <div
+        v-for="(item, index) in data"
+        :key="index"
+        class="row"
+      >
         <div
           v-for="(subItem, subIndex) in item"
           :key="subIndex"
           class="row__item col"
           :class="subItem.classes"
         >
-          <div v-if="subItem.label === 'Name'" @click="handleClick(subItem.id)">{{ subItem.value }}</div>
+          <div
+            v-if="subItem.label === 'Name'"
+            @click="handleClick(subItem.id)"
+          >
+            {{ subItem.value }}
+          </div>
           <div v-else>{{ subItem.value }}</div>
         </div>
       </div>

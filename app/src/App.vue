@@ -1,14 +1,14 @@
 <template>
   <div class="app">
-    <app-header @countdown="handleCountdown"></app-header>
+    <app-header @countdown="handleCountdown" />
     <div class="container">
       <vue-scroll>
-        <router-view ref="dashboard"/>
-        <app-footer></app-footer>
+        <router-view ref="dashboard" />
+        <app-footer />
       </vue-scroll>
     </div>
     <transition name="fade">
-      <loading v-if="showLoading"/>
+      <loading v-if="showLoading" />
     </transition>
     <transition name="fade">
       <message-modal
@@ -18,7 +18,7 @@
         :msg-sub-title="msgSubTitle"
         :msg-content="msgContent"
         @close="handleClose"
-      ></message-modal>
+      />
     </transition>
   </div>
 </template>

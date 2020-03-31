@@ -6,12 +6,21 @@
     </h1>
     <div class="grid">
       <div class="header">
-        <div v-for="item in header" :key="item" class="header__item col">
+        <div
+          v-for="item in header"
+          :key="item"
+          class="header__item col"
+        >
           <div>{{ item }}</div>
         </div>
       </div>
       <div class="row">
-        <div v-for="item in data" :key="item.label" class="row__item col" :class="item.classes">
+        <div
+          v-for="item in data"
+          :key="item.label"
+          class="row__item col"
+          :class="item.classes"
+        >
           <div>{{ item.value }}</div>
         </div>
       </div>

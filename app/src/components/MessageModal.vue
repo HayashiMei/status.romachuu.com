@@ -1,10 +1,16 @@
 <template>
   <div class="message-modal">
     <div :class="['message-box', { 'is-closed': !show }]">
-      <div class="header" :class="{ 'is-opened': open }">
+      <div
+        class="header"
+        :class="{ 'is-opened': open }"
+      >
         <span>{{ msgTitle }}</span>
       </div>
-      <div class="body" :class="{ 'is-opened': open }">
+      <div
+        class="body"
+        :class="{ 'is-opened': open }"
+      >
         <div class="body__inner">
           <vue-scroll>
             <h3>{{ msgSubTitle }}</h3>
@@ -20,7 +26,11 @@
           @click="handleClick(btn === 'btn--close' ? 'close' : 'open')"
         >
           <div class="line-box">
-            <div v-for="line in 2" :key="line" class="line"></div>
+            <div
+              v-for="line in 2"
+              :key="line"
+              class="line"
+            />
           </div>
         </button>
       </div>
@@ -32,9 +42,18 @@
 export default {
   props: {
     show: Boolean,
-    msgTitle: String,
-    msgSubTitle: String,
-    msgContent: String,
+    msgTitle: {
+      type: String,
+      default: '',
+    },
+    msgSubTitle: {
+      type: String,
+      default: '',
+    },
+    msgContent: {
+      type: String,
+      default: '',
+    },
   },
   data: () => ({
     open: false,
