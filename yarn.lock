@@ -3692,16 +3692,16 @@ eslint-config-prettier@6.10.1:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-loader@3.0.3:
-  version "3.0.3"
-  resolved "https://registry.npm.taobao.org/eslint-loader/download/eslint-loader-3.0.3.tgz?cache=0&sync_timestamp=1575636258046&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-loader%2Fdownload%2Feslint-loader-3.0.3.tgz#e018e3d2722381d982b1201adb56819c73b480ca"
-  integrity sha1-4Bjj0nIjgdmCsSAa21aBnHO0gMo=
+eslint-loader@3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/eslint-loader/-/eslint-loader-3.0.4.tgz#4329482877e381c91460a055bcd08d3855b9922d"
+  integrity sha512-I496aBd+Hi23Y0Cx+sKvw+VwlJre4ScIRlkrvTO6Scq68X/UXbN6F3lAhN8b0Zv8atAyprkyrA42K5QBJtCyaw==
   dependencies:
     fs-extra "^8.1.0"
-    loader-fs-cache "^1.0.2"
+    loader-fs-cache "^1.0.3"
     loader-utils "^1.2.3"
-    object-hash "^2.0.1"
-    schema-utils "^2.6.1"
+    object-hash "^2.0.3"
+    schema-utils "^2.6.5"
 
 eslint-plugin-prettier@3.1.2:
   version "3.1.2"
@@ -6008,10 +6008,10 @@ load-json-file@^1.0.0:
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
 
-loader-fs-cache@^1.0.2:
+loader-fs-cache@^1.0.3:
   version "1.0.3"
-  resolved "https://registry.npm.taobao.org/loader-fs-cache/download/loader-fs-cache-1.0.3.tgz#f08657646d607078be2f0a032f8bd69dd6f277d9"
-  integrity sha1-8IZXZG1gcHi+LwoDL4vWndbyd9k=
+  resolved "https://registry.yarnpkg.com/loader-fs-cache/-/loader-fs-cache-1.0.3.tgz#f08657646d607078be2f0a032f8bd69dd6f277d9"
+  integrity sha512-ldcgZpjNJj71n+2Mf6yetz+c9bM4xpKtNds4LbqXzU/PTdeAX0g3ytnU1AJMEcTk2Lex4Smpe3Q/eCTsvUBxbA==
   dependencies:
     find-cache-dir "^0.1.1"
     mkdirp "^0.5.1"
@@ -6882,10 +6882,10 @@ object-copy@^0.1.0:
     define-property "^0.2.5"
     kind-of "^3.0.3"
 
-object-hash@^2.0.1:
+object-hash@^2.0.3:
   version "2.0.3"
-  resolved "https://registry.npm.taobao.org/object-hash/download/object-hash-2.0.3.tgz#d12db044e03cd2ca3d77c0570d87225b02e1e6ea"
-  integrity sha1-0S2wROA80so9d8BXDYciWwLh5uo=
+  resolved "https://registry.yarnpkg.com/object-hash/-/object-hash-2.0.3.tgz#d12db044e03cd2ca3d77c0570d87225b02e1e6ea"
+  integrity sha512-JPKn0GMu+Fa3zt3Bmr66JhokJU5BaNBIh4ZeTlaCBzrBsOeXzwcKKAK1tbLiPKgvwmPXsDvvLHoWh5Bm7ofIYg==
 
 object-inspect@^1.7.0:
   version "1.7.0"
