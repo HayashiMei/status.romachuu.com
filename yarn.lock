@@ -9711,10 +9711,10 @@ vue@2.6.11:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
 
-vuescroll@4.15.0:
-  version "4.15.0"
-  resolved "https://registry.yarnpkg.com/vuescroll/-/vuescroll-4.15.0.tgz#5f26f5cbc3d994771d89ce2be18f89f7391ab28b"
-  integrity sha512-BdAZlO0t54nkVL+iTDJu5ZyA8sL1UZymWHUOVGTacblXezilQGDDzYrYl//OH7wKOMqOMEL4lDqT4Swp5aOrQw==
+vuescroll@4.15.1:
+  version "4.15.1"
+  resolved "https://registry.yarnpkg.com/vuescroll/-/vuescroll-4.15.1.tgz#87ede0195e113a1797e7b78ee5aa150796d62ea0"
+  integrity sha512-SpdepPo033zlP7yqRBDkktXQlGcu8w9kLOB9pcMopMzOpJ+euT+hfW7NLD0TuZSs/L5hqYZ/gdGxqaz+Jzw3DQ==
 
 vuex@3.4.0:
   version "3.4.0"
