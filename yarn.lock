@@ -9737,10 +9737,10 @@ vue@2.6.12:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==
 
-vuescroll@4.16.2:
-  version "4.16.2"
-  resolved "https://registry.yarnpkg.com/vuescroll/-/vuescroll-4.16.2.tgz#9bd26128a409ebe4689a587202086edd50fcd15f"
-  integrity sha512-WOf+BTNm2dboUUuPDC2OxdSprdDR1rzn5YTTeCNi5LqAMdDx+DQU6H/YAbVM0FwdGoHM5yiGBQpegENEsD+i/w==
+vuescroll@4.16.3:
+  version "4.16.3"
+  resolved "https://registry.yarnpkg.com/vuescroll/-/vuescroll-4.16.3.tgz#a8748518eae1f6c9434dacf74ca9a07a6e32415a"
+  integrity sha512-WhjFSu2L8k/I/CzzYmMT9hOiWAAYfcNzBAKOk9EaQ2M0S/IDNV/UWZepfbdcOVyXJFLjxQXEq4xxUUGFwTSAIA==
 
 vuex@3.6.0:
   version "3.6.0"
