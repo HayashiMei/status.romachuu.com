@@ -45,7 +45,7 @@
     "file-loader": "6.2.0",
     "html-webpack-plugin": "4.5.2",
     "image-webpack-loader": "7.0.1",
-    "mini-css-extract-plugin": "1.6.1",
+    "mini-css-extract-plugin": "1.6.2",
     "node-sass": "6.0.1",
     "optimize-css-assets-webpack-plugin": "6.0.1",
     "postcss-loader": "6.1.0",
