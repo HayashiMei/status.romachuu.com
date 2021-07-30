@@ -8486,10 +8486,10 @@ vue-eslint-parser@^7.9.0:
     lodash "^4.17.21"
     semver "^6.3.0"
 
-vue-loader@16.3.1:
-  version "16.3.1"
-  resolved "https://registry.nlark.com/vue-loader/download/vue-loader-16.3.1.tgz#5b675ae28ac97080111e93b26d22adca36dd57aa"
-  integrity sha1-W2da4orJcIARHpOybSKtyjbdV6o=
+vue-loader@16.4.0:
+  version "16.4.0"
+  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-16.4.0.tgz#79cf923ef00cc396f593b2e7963904640f41cf10"
+  integrity sha512-oySoEgEedGw0jz2czEOdb6sycQ2PPyzUmF8Yclj1NTpoTVHGCYCQaGf+jsvxhdDVfhOnDLjkRzT2fLpGOrVPjg==
   dependencies:
     chalk "^4.1.0"
     hash-sum "^2.0.0"
