@@ -2587,14 +2587,13 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
-cwebp-bin@^5.0.0:
-  version "5.1.0"
-  resolved "https://registry.npm.taobao.org/cwebp-bin/download/cwebp-bin-5.1.0.tgz#d5bea87c127358558e7bf7a90a6d440d42dcb074"
-  integrity sha1-1b6ofBJzWFWOe/epCm1EDULcsHQ=
+cwebp-bin@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/cwebp-bin/-/cwebp-bin-7.0.1.tgz#cb1303bf43f645ba5b2ece342773c4a93574d4f4"
+  integrity sha512-Ko5ADY74/dbfd8xG0+f+MUP9UKjCe1TG4ehpW0E5y4YlPdwDJlGrSzSR4/Yonxpm9QmZE1RratkIxFlKeyo3FA==
   dependencies:
     bin-build "^3.0.0"
     bin-wrapper "^4.0.1"
-    logalot "^2.1.0"
 
 dashdash@^1.12.0:
   version "1.14.1"
@@ -3282,7 +3281,7 @@ eventsource@^1.0.7:
   dependencies:
     original "^1.0.0"
 
-exec-buffer@^3.0.0:
+exec-buffer@^3.0.0, exec-buffer@^3.2.0:
   version "3.2.0"
   resolved "https://registry.npm.taobao.org/exec-buffer/download/exec-buffer-3.2.0.tgz#b1686dbd904c7cf982e652c1f5a79b1e5573082b"
   integrity sha1-sWhtvZBMfPmC5lLB9aebHlVzCCs=
@@ -4389,10 +4388,10 @@ ignore@^5.1.1, ignore@^5.1.4:
   resolved "https://registry.nlark.com/ignore/download/ignore-5.1.8.tgz?cache=0&sync_timestamp=1622604501784&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fignore%2Fdownload%2Fignore-5.1.8.tgz#f150a8b50a34289b33e22f5889abd4d8016f0e57"
   integrity sha1-8VCotQo0KJsz4i9YiavU2AFvDlc=
 
-image-webpack-loader@8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/image-webpack-loader/-/image-webpack-loader-8.0.1.tgz#9326b8e62cd984dab77eafb33265dc28280369e7"
-  integrity sha512-IarGZ9kUo1mdnnKsk/b+BImysNS09/KaqeKRTXNPpz02tRSU1Fpm5wdD09CqlfuPMgsb4rpuuMpwIrPbSxn30Q==
+image-webpack-loader@8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/image-webpack-loader/-/image-webpack-loader-8.1.0.tgz#cd97172e1e7304ef5eb898344fc25bbb650fc7d7"
+  integrity sha512-bxzMIBNu42KGo6Bc9YMB0QEUt+XuVTl2ZSX3oGAlbsqYOkxkT4TEWvVsnwUkCRCYISJrMCEc/s0y8OYrmEfUOg==
   dependencies:
     imagemin "^7.0.1"
     loader-utils "^2.0.0"
@@ -4404,7 +4403,7 @@ image-webpack-loader@8.0.1:
     imagemin-optipng "^8.0.0"
     imagemin-pngquant "^9.0.2"
     imagemin-svgo "^9.0.0"
-    imagemin-webp "^6.0.0"
+    imagemin-webp "^7.0.0"
 
 imagemin-gifsicle@^7.0.0:
   version "7.0.0"
@@ -4452,13 +4451,13 @@ imagemin-svgo@^9.0.0:
     is-svg "^4.2.1"
     svgo "^2.1.0"
 
-imagemin-webp@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.npm.taobao.org/imagemin-webp/download/imagemin-webp-6.0.0.tgz#bb2d77bab818fd6133df9675326497b877e7be4d"
-  integrity sha1-uy13urgY/WEz35Z1MmSXuHfnvk0=
+imagemin-webp@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/imagemin-webp/-/imagemin-webp-7.0.0.tgz#df000ec927855d74d4cfafec8558ac418c88d2a9"
+  integrity sha512-JoYjvHNgBLgrQAkeCO7T5iNc8XVpiBmMPZmiXMhalC7K6gwY/3DCEUfNxVPOmNJ+NIJlJFvzcMR9RBxIE74Xxw==
   dependencies:
-    cwebp-bin "^5.0.0"
-    exec-buffer "^3.0.0"
+    cwebp-bin "^7.0.1"
+    exec-buffer "^3.2.0"
     is-cwebp-readable "^3.0.0"
 
 imagemin@^7.0.1:
